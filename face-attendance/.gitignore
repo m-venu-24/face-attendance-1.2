@@ -1,0 +1,9 @@
+backend/venv/
+backend/__pycache__/
+backend/attendance.db
+backend/uploads/
+frontend/node_modules/
+frontend/dist/
+*.pyc
+.DS_Store
+*.log

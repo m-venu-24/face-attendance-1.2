@@ -1,0 +1,13 @@
+E:\face-attendance\face-attendance\backend\main.py:489: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+INFO:     Will watch for changes in these directories: ['E:\\face-attendance\\face-attendance\\backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [4924] using WatchFiles
+INFO:     Started server process [14300]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
