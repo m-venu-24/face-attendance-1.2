@@ -3,6 +3,7 @@ import io
 import json
 import os
 from functools import lru_cache
+from typing import Optional, List, Dict
 
 import numpy as np
 from PIL import Image, ImageOps
@@ -139,7 +140,7 @@ def _prepare_face_region(image_array: np.ndarray) -> np.ndarray:
     return np.asarray(grayscale, dtype=np.float32) / 255.0
 
 
-def _embedding_from_crop(crop_array: np.ndarray) -> list | None:
+def _embedding_from_crop(crop_array: np.ndarray) -> Optional[List[float]]:
     if crop_array is None or crop_array.size == 0:
         return None
 
@@ -159,12 +160,12 @@ def _embedding_from_crop(crop_array: np.ndarray) -> list | None:
     return (embedding / norm).tolist()
 
 
-def get_face_embedding(image_array: np.ndarray) -> list | None:
+def get_face_embedding(image_array: np.ndarray) -> Optional[List[float]]:
     embeddings = get_face_embedding_candidates(image_array)
     return embeddings[0] if embeddings else None
 
 
-def get_face_embedding_candidates(image_array: np.ndarray) -> list[list[float]]:
+def get_face_embedding_candidates(image_array: np.ndarray) -> List[List[float]]:
     if image_array is None or image_array.size == 0:
         return []
 
@@ -201,7 +202,7 @@ def embedding_from_json(json_str: str) -> np.ndarray:
     return np.array(json.loads(json_str), dtype=np.float32)
 
 
-def compare_faces(known_embeddings: list[dict], unknown_embedding: list, tolerance: float = 0.5) -> dict | None:
+def compare_faces(known_embeddings: List[Dict], unknown_embedding: List[float], tolerance: float = 0.5) -> Optional[Dict]:
     if not known_embeddings or not unknown_embedding:
         return None
 
