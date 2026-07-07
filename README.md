@@ -40,10 +40,10 @@ start.bat
 
 ### Linux/macOS
 ```bash
-cd face-attendance
+ cd .\face-attendance-1.2-add-files
 chmod +x setup.sh start.sh
-./setup.sh
-./start.sh
+.\setup.bat
+.\start.bat
 ```
 
 ## Applications
